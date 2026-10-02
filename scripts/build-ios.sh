@@ -51,9 +51,9 @@ pod install --repo-update
 echo ""
 echo -e "${YELLOW}Checking configuration...${NC}"
 
-if grep -q "YOUR_GOOGLE_CLIENT_ID" SetTimeScheduler/GoogleDriveConfig.swift; then
+if grep -q "YOUR_GOOGLE_CLIENT_ID" whatsappScheduler/GoogleDriveConfig.swift; then
     echo -e "${RED}✗ Google Client ID not configured${NC}"
-    echo "  Please update: ios/SetTimeScheduler/GoogleDriveConfig.swift"
+    echo "  Please update: ios/whatsappScheduler/GoogleDriveConfig.swift"
     echo "  Replace YOUR_GOOGLE_CLIENT_ID with your actual Client ID"
     exit 1
 fi
@@ -78,15 +78,15 @@ fi
 # Clean build
 echo -e "${YELLOW}Cleaning build artifacts...${NC}"
 rm -rf build
-xcodebuild clean -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+xcodebuild clean -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration "$BUILD_TYPE"
 
 # Build
 echo -e "${YELLOW}Building app...${NC}"
 xcodebuild build \
-    -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+    -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration "$BUILD_TYPE" \
     -sdk "$SDK" \
     -derivedDataPath build \
@@ -99,7 +99,7 @@ echo -e "${GREEN}✓ Build successful!${NC}"
 
 # Show build artifacts location
 if [ "$BUILD_TARGET" = "simulator" ]; then
-    APP_PATH="build/Build/Products/${BUILD_TYPE}-iphonesimulator/SetTimeScheduler.app"
+    APP_PATH="build/Build/Products/${BUILD_TYPE}-iphonesimulator/whatsappScheduler.app"
     if [ -d "$APP_PATH" ]; then
         echo -e "${GREEN}✓ App location: $APP_PATH${NC}"
     fi
@@ -109,8 +109,8 @@ echo ""
 echo -e "${YELLOW}Running tests...${NC}"
 
 xcodebuild test \
-    -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+    -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration "$BUILD_TYPE" \
     -sdk "$SDK" \
     -destination "platform=iOS Simulator,name=iPhone 15" \

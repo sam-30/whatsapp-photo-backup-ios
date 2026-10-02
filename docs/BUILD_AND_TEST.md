@@ -24,14 +24,14 @@ This installs:
 ### Step 2: Open the Xcode Workspace
 
 ```bash
-open SetTimeScheduler.xcworkspace
+open whatsappScheduler.xcworkspace
 ```
 
 **Important**: Always use the `.xcworkspace` file, not the `.xcodeproj` file.
 
 ### Step 3: Configure Google SignIn
 
-1. In Xcode, select the "SetTimeScheduler" target
+1. In Xcode, select the "whatsappScheduler" target
 2. Go to "Info" tab
 3. Add a URL Type:
    - Identifier: `com.google.signin`
@@ -39,7 +39,7 @@ open SetTimeScheduler.xcworkspace
 
 ### Step 4: Update GoogleDriveConfig
 
-Edit `ios/SetTimeScheduler/GoogleDriveConfig.swift`:
+Edit `ios/whatsappScheduler/GoogleDriveConfig.swift`:
 
 ```swift
 static let clientID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
@@ -51,8 +51,8 @@ static let clientID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
 ```bash
 cd ios
 xcodebuild build \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Debug \
   -sdk iphonesimulator \
   -derivedDataPath build
@@ -62,8 +62,8 @@ xcodebuild build \
 ```bash
 cd ios
 xcodebuild build \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Debug \
   -sdk iphoneos \
   -derivedDataPath build
@@ -74,8 +74,8 @@ xcodebuild build \
 ```bash
 cd ios
 xcodebuild test \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Debug \
   -sdk iphonesimulator \
   -derivedDataPath build
@@ -90,8 +90,8 @@ Run the included test suite:
 ```bash
 cd ios
 xcodebuild test \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -enableCodeCoverage YES
 ```
 
@@ -146,8 +146,8 @@ SwiftUI Preview Testing:
 ```bash
 cd ios
 xcodebuild build \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -destination 'platform=iOS Simulator,name=iPhone 15'
 ```
 
@@ -196,9 +196,9 @@ After successful build, you'll find:
 ```
 build/
 ├── Debug-iphonesimulator/
-│   └── SetTimeScheduler.app
+│   └── whatsappScheduler.app
 ├── Debug-iphoneos/
-│   └── SetTimeScheduler.app
+│   └── whatsappScheduler.app
 └── test-results/
     └── output.json
 ```
@@ -243,16 +243,16 @@ jobs:
       run: |
         cd ios
         xcodebuild build-for-testing \
-          -workspace SetTimeScheduler.xcworkspace \
-          -scheme SetTimeScheduler \
+          -workspace whatsappScheduler.xcworkspace \
+          -scheme whatsappScheduler \
           -configuration Debug
     
     - name: Run Tests
       run: |
         cd ios
         xcodebuild test \
-          -workspace SetTimeScheduler.xcworkspace \
-          -scheme SetTimeScheduler \
+          -workspace whatsappScheduler.xcworkspace \
+          -scheme whatsappScheduler \
           -configuration Debug
 ```
 
@@ -297,10 +297,10 @@ Create a release build:
 ```bash
 cd ios
 xcodebuild build \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Release \
-  -archivePath build/SetTimeScheduler.xcarchive \
+  -archivePath build/whatsappScheduler.xcarchive \
   archive
 ```
 
@@ -308,7 +308,7 @@ Export for App Store:
 
 ```bash
 xcodebuild -exportArchive \
-  -archivePath build/SetTimeScheduler.xcarchive \
+  -archivePath build/whatsappScheduler.xcarchive \
   -exportPath build/exports \
   -exportOptionsPlist ExportOptions.plist
 ```
@@ -320,8 +320,8 @@ Generate code coverage report:
 ```bash
 cd ios
 xcodebuild test \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -enableCodeCoverage YES \
   -derivedDataPath build
 ```

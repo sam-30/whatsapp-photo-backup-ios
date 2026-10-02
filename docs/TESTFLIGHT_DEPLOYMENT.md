@@ -110,21 +110,21 @@ Complete step-by-step instructions to deploy the WhatsApp Photo Backup app to Te
 
 ```bash
 cd /path/to/whatsapp-photo-backup-ios
-open SetTimeScheduler.xcworkspace
+open whatsappScheduler.xcworkspace
 ```
 
 ⚠️ **IMPORTANT**: Always use `.xcworkspace`, not `.xcodeproj`
 
 ### Step 3.2: Update Bundle Identifier
 
-1. In Xcode, select **SetTimeScheduler** project
-2. Select **SetTimeScheduler** target
+1. In Xcode, select **whatsappScheduler** project
+2. Select **whatsappScheduler** target
 3. Go to **General** tab
 4. Change **Bundle Identifier** to: `com.rotabush.whatsappphotobackup`
 
 ### Step 3.3: Configure Signing
 
-1. Select **SetTimeScheduler** target
+1. Select **whatsappScheduler** target
 2. Go to **Signing & Capabilities** tab
 3. Set:
    - **Team**: Your team (rotabush@gmail.com)
@@ -145,7 +145,7 @@ open SetTimeScheduler.xcworkspace
 
 ### Step 3.5: Configure Google Drive Client ID
 
-1. Update `ios/SetTimeScheduler/GoogleDriveConfig.swift`:
+1. Update `ios/whatsappScheduler/GoogleDriveConfig.swift`:
 ```swift
 struct GoogleDriveConfig {
     static let clientID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
@@ -178,8 +178,8 @@ pod install
 ```bash
 cd ios
 xcodebuild build-for-testing \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Release \
   -sdk iphoneos
 ```
@@ -200,11 +200,11 @@ xcodebuild build-for-testing \
 ```bash
 cd ios
 xcodebuild \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Release \
   -sdk iphoneos \
-  -archivePath build/SetTimeScheduler.xcarchive \
+  -archivePath build/whatsappScheduler.xcarchive \
   archive
 ```
 
@@ -212,7 +212,7 @@ xcodebuild \
 
 ```bash
 xcodebuild -exportArchive \
-  -archivePath build/SetTimeScheduler.xcarchive \
+  -archivePath build/whatsappScheduler.xcarchive \
   -exportPath build/ipa \
   -exportOptionsPlist ExportOptions.plist
 ```

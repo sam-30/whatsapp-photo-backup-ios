@@ -1,5 +1,5 @@
 import XCTest
-@testable import SetTimeScheduler
+@testable import whatsappScheduler
 
 class PhotoBackupServiceTests: XCTestCase {
     var backupService: PhotoBackupService!

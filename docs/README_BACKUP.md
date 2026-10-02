@@ -128,7 +128,7 @@ Each error provides a user-friendly message.
 
 Run the included tests:
 ```bash
-xcodebuild test -workspace SetTimeScheduler.xcworkspace -scheme SetTimeScheduler
+xcodebuild test -workspace whatsappScheduler.xcworkspace -scheme whatsappScheduler
 ```
 
 ## Configuration

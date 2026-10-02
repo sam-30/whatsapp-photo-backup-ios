@@ -20,7 +20,7 @@ NC='\033[0m'
 BUNDLE_ID="com.rotabush.whatsappphotobackup"
 PROVISIONING_PROFILE="WhatsApp Photo Backup Dev"
 BUILD_DIR="$PROJECT_DIR/build"
-ARCHIVE_PATH="$BUILD_DIR/SetTimeScheduler.xcarchive"
+ARCHIVE_PATH="$BUILD_DIR/whatsappScheduler.xcarchive"
 EXPORT_DIR="$BUILD_DIR/ipa"
 
 echo -e "${BLUE}"
@@ -77,7 +77,7 @@ cd "$PROJECT_DIR"
 # Step 2: Verify configuration
 print_step "Verifying app configuration..."
 
-if grep -q "YOUR_GOOGLE_CLIENT_ID" "$PROJECT_DIR/ios/SetTimeScheduler/GoogleDriveConfig.swift"; then
+if grep -q "YOUR_GOOGLE_CLIENT_ID" "$PROJECT_DIR/ios/whatsappScheduler/GoogleDriveConfig.swift"; then
     print_error "Google Client ID not configured in GoogleDriveConfig.swift"
     echo "  Please update with your actual Client ID from Google Cloud Console"
     exit 1
@@ -98,12 +98,12 @@ print_step "Getting version information..."
 cd "$PROJECT_DIR/ios"
 
 # Try to extract from Xcode project
-MARKETING_VERSION=$(xcodebuild -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+MARKETING_VERSION=$(xcodebuild -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -showBuildSettings | grep MARKETING_VERSION | head -1 | sed 's/.*= //')
 
-CURRENT_PROJECT_VERSION=$(xcodebuild -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+CURRENT_PROJECT_VERSION=$(xcodebuild -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -showBuildSettings | grep CURRENT_PROJECT_VERSION | head -1 | sed 's/.*= //')
 
 cd "$PROJECT_DIR"
@@ -123,8 +123,8 @@ print_success "Version information retrieved"
 print_step "Cleaning previous builds..."
 rm -rf "$BUILD_DIR"
 cd "$PROJECT_DIR/ios"
-xcodebuild clean -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+xcodebuild clean -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration Release > /dev/null 2>&1
 cd "$PROJECT_DIR"
 print_success "Build cleaned"
@@ -134,8 +134,8 @@ print_step "Building archive (this may take 2-5 minutes)..."
 cd "$PROJECT_DIR/ios"
 
 xcodebuild archive \
-    -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+    -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration Release \
     -archivePath "$ARCHIVE_PATH" \
     -derivedDataPath "$BUILD_DIR/derived" \

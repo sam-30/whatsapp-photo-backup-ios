@@ -50,9 +50,9 @@ cd ..
 echo ""
 echo -e "${YELLOW}Step 2: Verifying configuration...${NC}"
 
-if grep -q "YOUR_GOOGLE_CLIENT_ID" ios/SetTimeScheduler/GoogleDriveConfig.swift; then
+if grep -q "YOUR_GOOGLE_CLIENT_ID" ios/whatsappScheduler/GoogleDriveConfig.swift; then
     echo -e "${RED}✗ Google Client ID not configured${NC}"
-    echo "  Please update: ios/SetTimeScheduler/GoogleDriveConfig.swift"
+    echo "  Please update: ios/whatsappScheduler/GoogleDriveConfig.swift"
     echo "  Replace YOUR_GOOGLE_CLIENT_ID with your actual Client ID"
     exit 1
 fi
@@ -63,8 +63,8 @@ echo -e "${YELLOW}Step 3: Checking bundle identifier...${NC}"
 BUNDLE_ID="com.rotabush.whatsappphotobackup"
 echo "Expected Bundle ID: $BUNDLE_ID"
 echo "Please verify in Xcode:"
-echo "  1. Select SetTimeScheduler project"
-echo "  2. Select SetTimeScheduler target"
+echo "  1. Select whatsappScheduler project"
+echo "  2. Select whatsappScheduler target"
 echo "  3. Go to General tab"
 echo "  4. Bundle Identifier should be: $BUNDLE_ID"
 echo ""
@@ -79,8 +79,8 @@ echo ""
 echo -e "${YELLOW}Step 5: Cleaning build artifacts...${NC}"
 cd ios
 rm -rf build
-xcodebuild clean -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+xcodebuild clean -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration Release
 echo -e "${GREEN}✓ Build cleaned${NC}"
 cd ..
@@ -94,8 +94,8 @@ echo "  xcode-select --reset"
 echo ""
 
 xcodebuild build-for-testing \
-    -workspace SetTimeScheduler.xcworkspace \
-    -scheme SetTimeScheduler \
+    -workspace whatsappScheduler.xcworkspace \
+    -scheme whatsappScheduler \
     -configuration Release \
     -sdk iphoneos
 
@@ -108,9 +108,9 @@ echo -e "${GREEN}========== READY FOR ARCHIVE ==========${NC}"
 echo ""
 echo "Next steps:"
 echo "1. Open Xcode:"
-echo "   open ios/SetTimeScheduler.xcworkspace"
+echo "   open ios/whatsappScheduler.xcworkspace"
 echo ""
-echo "2. Select SetTimeScheduler target"
+echo "2. Select whatsappScheduler target"
 echo "3. Select your iOS device from top menu"
 echo "4. Go to Product → Archive"
 echo "5. Wait for build to complete"

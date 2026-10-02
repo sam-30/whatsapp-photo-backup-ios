@@ -23,7 +23,7 @@ Use this checklist to ensure you complete all steps for deploying to TestFlight.
 - [ ] Download and install provisioning profile
 
 ## Phase 3: Xcode Configuration
-- [ ] Open `SetTimeScheduler.xcworkspace` (NOT .xcodeproj)
+- [ ] Open `whatsappScheduler.xcworkspace` (NOT .xcodeproj)
 - [ ] Update bundle identifier to `com.rotabush.whatsappphotobackup`
 - [ ] Set team to your Apple ID (rotabush@gmail.com)
 - [ ] Enable automatic signing
@@ -148,12 +148,12 @@ scripts/verify-swift-code.sh
 
 # Build for testing
 xcodebuild build-for-testing \
-  -workspace SetTimeScheduler.xcworkspace \
-  -scheme SetTimeScheduler \
+  -workspace whatsappScheduler.xcworkspace \
+  -scheme whatsappScheduler \
   -configuration Release
 
 # Open in Xcode
-open SetTimeScheduler.xcworkspace
+open whatsappScheduler.xcworkspace
 ```
 
 ## Troubleshooting Quick Fix

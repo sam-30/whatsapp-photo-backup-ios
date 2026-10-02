@@ -41,12 +41,12 @@ The app performs the following steps:
 1. Open the iOS project in Xcode:
    ```bash
    cd ios
-   open SetTimeScheduler.xcworkspace
+   open whatsappScheduler.xcworkspace
    ```
 
 2. Add GoogleSignIn URL scheme:
    - Select the project in Xcode
-   - Select "SetTimeScheduler" target
+   - Select "whatsappScheduler" target
    - Go to "Info" tab
    - Add a new URL Type:
      - Identifier: com.google.signin
@@ -54,7 +54,7 @@ The app performs the following steps:
      - (Replace REVERSED_CLIENT_ID with your client ID reversed, e.g., `com.googleusercontent.apps.xxxx`)
 
 3. Update GoogleDriveConfig.swift:
-   - Open `ios/SetTimeScheduler/GoogleDriveConfig.swift`
+   - Open `ios/whatsappScheduler/GoogleDriveConfig.swift`
    - Replace `YOUR_GOOGLE_CLIENT_ID` with your actual Client ID from Google Cloud Console
    - Replace `YOUR_GOOGLE_SERVER_CLIENT_ID` with your Server Client ID
 
@@ -289,17 +289,17 @@ func startBackup(completion: @escaping (Result<BackupResult, Error>) -> Void)
 
 1. Archive the project:
    ```bash
-   xcodebuild -workspace ios/SetTimeScheduler.xcworkspace \
-     -scheme SetTimeScheduler \
+   xcodebuild -workspace ios/whatsappScheduler.xcworkspace \
+     -scheme whatsappScheduler \
      -configuration Release \
-     -archivePath build/SetTimeScheduler.xcarchive \
+     -archivePath build/whatsappScheduler.xcarchive \
      archive
    ```
 
 2. Export the archive:
    ```bash
    xcodebuild -exportArchive \
-     -archivePath build/SetTimeScheduler.xcarchive \
+     -archivePath build/whatsappScheduler.xcarchive \
      -exportPath build/exports \
      -exportOptionsPlist ExportOptions.plist
    ```

@@ -4,12 +4,12 @@
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SWIFT_FILES=(
-    "ios/SetTimeScheduler/WhatsAppPhotoManager.swift"
-    "ios/SetTimeScheduler/GoogleDriveManager.swift"
-    "ios/SetTimeScheduler/PhotoBackupService.swift"
-    "ios/SetTimeScheduler/BackupView.swift"
-    "ios/SetTimeScheduler/GoogleDriveConfig.swift"
-    "ios/SetTimeScheduler/BackupServiceTests.swift"
+    "ios/whatsappScheduler/WhatsAppPhotoManager.swift"
+    "ios/whatsappScheduler/GoogleDriveManager.swift"
+    "ios/whatsappScheduler/PhotoBackupService.swift"
+    "ios/whatsappScheduler/BackupView.swift"
+    "ios/whatsappScheduler/GoogleDriveConfig.swift"
+    "ios/whatsappScheduler/BackupServiceTests.swift"
 )
 
 echo "=== Swift Code Verification ===="
@@ -79,23 +79,23 @@ echo "=== Code Metrics ===="
 echo ""
 
 # Total lines of code
-TOTAL_LINES=$(wc -l "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null | tail -1 | awk '{print $1}')
+TOTAL_LINES=$(wc -l "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null | tail -1 | awk '{print $1}')
 echo "Total Swift Lines: $TOTAL_LINES"
 
 # Count classes
-CLASS_COUNT=$(grep -h "^class " "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null | wc -l)
+CLASS_COUNT=$(grep -h "^class " "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null | wc -l)
 echo "Classes: $CLASS_COUNT"
 
 # Count structs
-STRUCT_COUNT=$(grep -h "^struct " "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null | wc -l)
+STRUCT_COUNT=$(grep -h "^struct " "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null | wc -l)
 echo "Structs: $STRUCT_COUNT"
 
 # Count enums
-ENUM_COUNT=$(grep -h "^enum " "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null | wc -l)
+ENUM_COUNT=$(grep -h "^enum " "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null | wc -l)
 echo "Enums: $ENUM_COUNT"
 
 # Count functions
-FUNC_COUNT=$(grep -h "func " "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null | wc -l)
+FUNC_COUNT=$(grep -h "func " "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null | wc -l)
 echo "Functions: $FUNC_COUNT"
 
 echo ""
@@ -114,7 +114,7 @@ REQUIRED_IMPORTS=(
 )
 
 for import in "${REQUIRED_IMPORTS[@]}"; do
-    if grep -q "import $import" "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null; then
+    if grep -q "import $import" "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null; then
         echo -e "${GREEN}✓ $import${NC}"
     else
         echo -e "${YELLOW}⚠ $import not found${NC}"
@@ -133,7 +133,7 @@ ERROR_TYPES=(
 )
 
 for error in "${ERROR_TYPES[@]}"; do
-    if grep -q "enum $error" "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null; then
+    if grep -q "enum $error" "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null; then
         echo -e "${GREEN}✓ $error defined${NC}"
     else
         echo -e "${RED}✗ $error not found${NC}"
@@ -153,7 +153,7 @@ SERVICES=(
 )
 
 for service in "${SERVICES[@]}"; do
-    if grep -q "class $service" "$PROJECT_DIR"/ios/SetTimeScheduler/*.swift 2>/dev/null; then
+    if grep -q "class $service" "$PROJECT_DIR"/ios/whatsappScheduler/*.swift 2>/dev/null; then
         echo -e "${GREEN}✓ $service defined${NC}"
     else
         echo -e "${RED}✗ $service not found${NC}"
@@ -166,7 +166,7 @@ echo "=== UI Components ==="
 echo ""
 
 # Check for SwiftUI views
-if grep -q "struct BackupView: View" "$PROJECT_DIR"/ios/SetTimeScheduler/BackupView.swift; then
+if grep -q "struct BackupView: View" "$PROJECT_DIR"/ios/whatsappScheduler/BackupView.swift; then
     echo -e "${GREEN}✓ BackupView SwiftUI component${NC}"
 else
     echo -e "${RED}✗ BackupView not found${NC}"

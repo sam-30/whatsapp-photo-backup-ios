@@ -53,7 +53,7 @@ Automatically backup all your WhatsApp photos to Google Drive and delete local c
    - Create a Google Cloud Project
    - Enable Drive API
    - Generate OAuth credentials for iOS
-   - Update `ios/SetTimeScheduler/GoogleDriveConfig.swift` with your Client ID
+   - Update `ios/whatsappScheduler/GoogleDriveConfig.swift` with your Client ID
 
 4. **Build and run**
    ```bash
@@ -119,7 +119,7 @@ scripts/verify-swift-code.sh
 Run tests:
 ```bash
 cd ios
-xcodebuild test -workspace SetTimeScheduler.xcworkspace -scheme SetTimeScheduler
+xcodebuild test -workspace whatsappScheduler.xcworkspace -scheme whatsappScheduler
 ```
 
 ## Code Statistics
